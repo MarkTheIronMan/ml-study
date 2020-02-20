@@ -28,7 +28,7 @@ REM If output file is not specified, program must fail
 echo Test 4 passed
 
 REM If input and output files are not specified, program must fail
-MissingFile.txt && goto err
+%MyProgram% && goto err
 echo Test 5 passed
 
 REM Тесты прошли успешно
