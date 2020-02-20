@@ -27,7 +27,7 @@ std::optional<Args> ParseArgs(int argc, char* argv[])
 	return args;
 }
 
-void CopyStreams(std::ifstream &input, std::ofstream &output)
+void CopyStreams(std::ifstream& input, std::ofstream& output)
 {
 	char ch;
 	while (input.get(ch))
@@ -36,6 +36,41 @@ void CopyStreams(std::ifstream &input, std::ofstream &output)
 		{
 			break;
 		}
+	}
+}
+
+bool CopyFile(std::string inputFileName, std::string outputFileName)
+{
+	// Открываем входной файл
+	std::ifstream input;
+	input.open(inputFileName);
+	if (!input.is_open())
+	{
+		std::cout << "Failed to open '" << inputFileName << "' for reading\n";
+		return false;
+	}
+	// Открываем выходной файл
+	std::ofstream output;
+	output.open(outputFileName);
+	if (!output.is_open())
+	{
+		std::cout << "Failed to open '" << outputFileName << "' for writing\n";
+		return false;
+	}
+
+	// Копируем содержимое входного файла в выходной
+	CopyStreams(input, output);
+
+	if (input.bad())
+	{
+		std::cout << "Failed to read data from input file\n";
+		return false;
+	}
+
+	if (!output.flush())
+	{
+		std::cout << "Failed to write data to output file\n";
+		return 1;
 	}
 }
 
@@ -48,36 +83,9 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	// Открываем входной файл
-	std::ifstream input;
-	input.open(args->inputFileName);
-	if (!input.is_open())
+	if (!CopyFile(args->inputFileName, args->outputFileName))
 	{
-		std::cout << "Failed to open '" << args->inputFileName << "' for reading\n";
 		return 1;
-	}
-	// Открываем выходной файл
-	std::ofstream output;
-	output.open(args->outputFileName);
-	if (!output.is_open())
-	{
-		std::cout << "Failed to open '" << args->outputFileName << "' for writing\n";
-		return 1;
-	}
-
-	// Копируем содержимое входного файла в выходной
-	CopyStreams(input, output);
-
-	if (input.bad())
-	{
-		std::cout << "Failed to read data from input file\n";
-		return 1;
-	}
-
-	if (!output.flush())
-	{
-		std::cout << "Failed to write data to output file\n";
-		return 1; 
 	}
 
 	return 0;
