@@ -13,12 +13,12 @@ REM numeric input "6"
 %MyProgram% "6" > nul || goto err
 echo Test 1 passed
 
-REM num+string input
-%MyProgram% "1ab" > nul || goto err
+REM num input > range
+%MyProgram% "500" > nul && goto err
 echo Test 2 passed
 
-REM num+string input
-%MyProgram% "1 abc" > nul || goto err
+REM num input < range
+%MyProgram% "-5" > nul && goto err
 echo Test 3 passed
 
 REM string input
