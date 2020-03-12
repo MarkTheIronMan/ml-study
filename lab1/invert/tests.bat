@@ -28,6 +28,10 @@ REM input another matrix 3x3
 fc output2test.txt output2.txt > nul || goto err
 echo Test 4 passed
 
+REM input matrix 3x3 with empty file
+%MyProgram% emptyfile.txt && goto err
+echo Test 5 passed
+
 
 REM Тесты прошли успешно
 echo All tests passed successfuly
