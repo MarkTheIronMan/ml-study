@@ -6,7 +6,7 @@
 
 using namespace std;
 
-optional<int> ParseArg(int argc, char* argv[])
+optional<uint8_t> ParseArg(int argc, char* argv[])
 {
 	if (argc != 2)
 	{

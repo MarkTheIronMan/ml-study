@@ -14,11 +14,11 @@ REM numeric input "6"
 echo Test 1 passed
 
 REM num input > range
-%MyProgram% "500" > nul && goto err
+%MyProgram% "256" > nul && goto err
 echo Test 2 passed
 
 REM num input < range
-%MyProgram% "-5" > nul && goto err
+%MyProgram% "-1" > nul && goto err
 echo Test 3 passed
 
 REM string input
@@ -30,7 +30,7 @@ REM num less than min + string input
 echo Test 5 passed
 
 REM num more than max + string input
-%MyProgram% "999 abc" > nul && goto err
+%MyProgram% "500 abc" > nul && goto err
 echo Test 6 passed
 
 REM empty
