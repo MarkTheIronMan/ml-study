@@ -20,12 +20,12 @@ echo Test 2 passed
 
 REM input matrix 3x3
 %MyProgram% input1.txt > output1.txt || goto err
-fc tests\output1.txt output1.txt > nul || goto err
+fc output1test.txt output1.txt > nul || goto err
 echo Test 3 passed
 
 REM input another matrix 3x3
 %MyProgram% input2.txt > output2.txt || goto err
-fc tests\output2.txt output2.txt > nul || goto err
+fc output2test.txt output2.txt > nul || goto err
 echo Test 4 passed
 
 
