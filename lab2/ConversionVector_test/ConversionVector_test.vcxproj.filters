@@ -15,21 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="live.cpp">
+    <ClCompile Include="ConversionVector_test.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ConversionVector\Utilities.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="environment.h">
+    <ClInclude Include="..\ConversionVector\Utilities.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="input.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Tests.bat">
-      <Filter>Исходные файлы</Filter>
-    </None>
   </ItemGroup>
 </Project>

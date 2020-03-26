@@ -12,7 +12,7 @@ struct Args
 	std::string outputFileName;
 };
 
-std::optional<Args> ParseArgs(int argc, char* argv[])
+optional<Args> ParseArgs(int argc, char* argv[])
 {
 	if (argc != 3)
 	{

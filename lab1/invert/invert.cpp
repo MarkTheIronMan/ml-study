@@ -25,7 +25,6 @@ int main(int argc, char* argv[])
 	Matrix3x3 invertedMatrix;
 	if (!Invert(matrix, invertedMatrix))
 	{
-		cout << "The determinant cannot be 0." << endl;
 		return 1;
 	}
 

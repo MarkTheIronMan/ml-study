@@ -27,15 +27,15 @@ bool ReadMatrix(const std::string fileInput, Matrix3x3& matrix)
 		return false;
 	}
 	for (int row = 0; row < MATRIX_SIZE; ++row)
+	{
+		for (int col = 0; col < MATRIX_SIZE; ++col)
 		{
-			for (int col = 0; col < MATRIX_SIZE; ++col)
+			if (!(inputFile >> matrix.elems[row][col]))
 			{
-				if (!(inputFile >> matrix.elems[row][col]))
-				{
-					return false;
-				}
+				return false;
 			}
 		}
+	}
 	return true;
 }
 
@@ -79,8 +79,9 @@ void GetInvertedMatrix(const Matrix3x3& matrix, Matrix3x3& invertedMatrix, doubl
 	{
 		for (int col = 0; col < MATRIX_SIZE; ++col)
 		{
-			double minor = FindMinor(matrix, row, col);
-			invertedMatrix.elems[row][col] = minor / determinant;
+			double minorTransposed = FindMinor(matrix, row, col);
+			invertedMatrix.elems[row][col] = minorTransposed / determinant;
+
 		}
 	}
 }
@@ -91,6 +92,7 @@ bool Invert(const Matrix3x3& matrix, Matrix3x3& invertedMatrix)
 
 	if (determinant == 0)
 	{
+		cout << "The determinant cannot be 0." << endl;
 		return false;
 	}
 
