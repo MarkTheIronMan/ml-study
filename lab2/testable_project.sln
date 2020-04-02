@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConversionVector_test", "Co
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FindAndReplace", "FindAndReplace\FindAndReplace.vcxproj", "{DA610739-FBB1-4E27-B685-D23AEC58F871}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FindAndReplace_test", "FindAndReplace_test\FindAndReplace_test.vcxproj", "{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{DA610739-FBB1-4E27-B685-D23AEC58F871}.Release|x64.Build.0 = Release|x64
 		{DA610739-FBB1-4E27-B685-D23AEC58F871}.Release|x86.ActiveCfg = Release|Win32
 		{DA610739-FBB1-4E27-B685-D23AEC58F871}.Release|x86.Build.0 = Release|Win32
+		{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}.Debug|x64.ActiveCfg = Debug|x64
+		{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}.Debug|x64.Build.0 = Debug|x64
+		{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}.Debug|x86.ActiveCfg = Debug|Win32
+		{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}.Debug|x86.Build.0 = Debug|Win32
+		{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}.Release|x64.ActiveCfg = Release|x64
+		{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}.Release|x64.Build.0 = Release|x64
+		{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}.Release|x86.ActiveCfg = Release|Win32
+		{F4E16E6B-C844-478D-A3D7-C1B6DA38CFF2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
