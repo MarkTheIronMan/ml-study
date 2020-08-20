@@ -2,10 +2,10 @@
 #include "../CRational.cpp"
 #include <sstream>
 
-void CheckValue(CRational const& rationalNumber, int expectedNumerator, int expectedDenominator)
+void CheckValue(CRational const& rationalNumber, int expectedNum, int expectedDen)
 {
-	REQUIRE(rationalNumber.GetNumerator() == expectedNumerator);
-	REQUIRE(rationalNumber.GetDenominator() == expectedDenominator);
+	REQUIRE(rationalNumber.GetNumerator() == expectedNum);
+	REQUIRE(rationalNumber.GetDenominator() == expectedDen);
 }
 
 TEST_CASE("Check CRational", "[CRational]")
@@ -340,25 +340,6 @@ TEST_CASE("Check CRational", "[CRational]")
 		}
 	}
 
-	SECTION("Operation '<<' outputs a rational number to the output stream")
-	{
-		SECTION("positive")
-		{
-			CRational rational(1, 2);
-			std::stringstream output;
-			output << rational;
-			REQUIRE(output.str() == "1/2");
-		}
-
-		SECTION("negative")
-		{
-			CRational rational(-1, 2);
-			std::stringstream output;
-			output << rational;
-			REQUIRE(output.str() == "-1/2");
-		}
-	}
-
 	SECTION("Operation '>>' enters a rational number in the input stream")
 	{
 		SECTION("positive")
@@ -375,50 +356,6 @@ TEST_CASE("Check CRational", "[CRational]")
 			std::stringstream input("-1/2");
 			input >> rational;
 			CheckValue(rational, -1, 2);
-		}
-	}
-
-	SECTION("Returns the representation of a rational number in the form of a mixed fraction")
-	{
-
-		SECTION("division whole")
-		{
-			CRational rational(4, 2);
-			std::pair<int, CRational> newRational = rational.ToCompoundFraction();
-			REQUIRE(newRational.first == 2);
-			REQUIRE(newRational.second == CRational());
-		}
-
-		SECTION("positive")
-		{
-			CRational rational(8, 3);
-			std::pair<int, CRational> newRational = rational.ToCompoundFraction();
-			REQUIRE(newRational.first == 2);
-			REQUIRE(newRational.second == CRational(2, 3));
-		}
-
-		SECTION("negative")
-		{
-			CRational rational(-8, 3);
-			std::pair<int, CRational> newRational = rational.ToCompoundFraction();
-			REQUIRE(newRational.first == -2);
-			REQUIRE(newRational.second == CRational(-2, 3));
-		}
-
-		SECTION("positive rational without int part")
-		{
-			CRational rational(1, 3);
-			std::pair<int, CRational> newRational = rational.ToCompoundFraction();
-			REQUIRE(newRational.first == 0);
-			REQUIRE(newRational.second == CRational(1, 3));
-		}
-
-		SECTION("negative rational without int part")
-		{
-			CRational rational(-1, 3);
-			std::pair<int, CRational> newRational = rational.ToCompoundFraction();
-			REQUIRE(newRational.first == 0);
-			REQUIRE(newRational.second == CRational(-1, 3));
 		}
 	}
 }

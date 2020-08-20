@@ -1,19 +1,11 @@
 ﻿
-#include "../CTVSet.h"
-#include "../CTVSet.cpp"
-#include "../RemoteControl.h"
 #include "../../catch2/catch.hpp"
+#include "../CTVSet.cpp"
+#include "../CTVSet.h"
+#include "../RemoteControl.h"
 
 using namespace std;
-/*
-stringstream input;
 
-void SetInput(string str1, stringstream& stream = input)
-{
-	stream.clear();
-	stream << str1;
-}
-*/
 
 TEST_CASE("TurnOn test")
 {
@@ -36,4 +28,26 @@ TEST_CASE("SelectChannel test out of range")
 	CTVSet tv;
 	tv.TurnOn();
 	REQUIRE(tv.SelectChannel(chan) == false);
+}
+
+TEST_CASE("Check previous channel")
+{
+	int ch1 = 10;
+	int ch2 = 12;
+	CTVSet tv;
+	tv.TurnOn();
+	tv.SelectChannel(ch1);
+	tv.SelectChannel(ch2);
+	tv.SelectPreviousChannel();
+	REQUIRE(tv.GetSelectedChannel() == ch1);
+}
+
+TEST_CASE("Check channel name existance")
+{
+	string name = "OPT";
+	int ch = 1;
+	CTVSet tv;
+	tv.TurnOn();
+	tv.SetChannelName(ch, name);
+	REQUIRE(tv.GetChannelName(ch, name) == true);
 }
